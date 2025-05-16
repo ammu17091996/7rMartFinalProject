@@ -1,0 +1,85 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class ManageNewsPage {
+	public WebDriver driver;
+
+	public ManageNewsPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+
+	}
+
+	@FindBy(name = "username")
+	private WebElement usernamefield;
+	@FindBy(name = "password")
+	private WebElement passwordfield;
+	@FindBy(xpath = "//button[text()='Sign In']")
+	private WebElement signinfield;
+	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news']")
+	private WebElement managenewsfield;
+	@FindBy(xpath = "//a[@onclick='click_button(1)']")
+	private WebElement newnewsField;
+	@FindBy(xpath = "//textarea[@id='news']")
+	private WebElement newstextarea;
+	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news']")private WebElement managenewsField;
+	
+	@FindBy(xpath = "//button[@name='create']")
+	private WebElement saveNewsButton;
+	@FindBy(xpath = "//a[@onclick='click_button(2)']")
+	private WebElement searchnewsfield;
+	@FindBy(xpath = "//input[@placeholder='Title']")
+	private WebElement newsTitleField;
+	
+	@FindBy(xpath = "//button[@value='sr']")
+	private WebElement NewsSearchButton;
+
+	
+	
+	
+	
+	public void enterUesrnameOnUserNameField(String username) {
+		usernamefield.sendKeys(username);
+	}
+
+	public void enterPasswordOnPasswordField(String password) {
+		passwordfield.sendKeys(password);
+	}
+
+	public void clickLoginButtonField() {
+		signinfield.click();
+	}
+
+	public void clickOnManageNewsField() {
+		managenewsfield.click();
+	}
+
+	public void clickOnNewNewsField() {
+		newnewsField.click();
+
+	}
+	public void enterNewNewsOnTextarea(String testnewsdata){
+		newstextarea.sendKeys(testnewsdata);
+
+	}
+	public void clickOnSaveNewsButton() {
+		saveNewsButton.click();
+
+	}
+	public void clickOnSearchNewsButton() {
+		searchnewsfield.click();
+
+	}
+	public void enterNewsTitleForSearch(String testnews) {
+		newsTitleField.sendKeys(testnews);
+
+	}
+	public void clickOnSearchButton() {
+		NewsSearchButton.click();
+
+	}
+}

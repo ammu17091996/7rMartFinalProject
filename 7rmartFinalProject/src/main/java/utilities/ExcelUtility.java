@@ -8,22 +8,22 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class ExcelUtility 
-{
+import constants.Constant;
+
+public class ExcelUtility {
 	public static XSSFWorkbook w;
 
 	public static XSSFSheet s;
 
 	public static FileInputStream f;
 
-	public static String readStringData(int i, int j,String sheet) throws IOException
-	{
+	public static String readStringData(int i, int j, String sheet) throws IOException {
 
-		f = new FileInputStream("C:\\Users\\NITHYA R NAIR\\eclipse-workspace\\7rmartFinalProject\\src\\test\\resources\\TestingData.xlsx");
+		f = new FileInputStream(Constant.TESTDATAFILE);
 		w = new XSSFWorkbook(f);
 
 		s = w.getSheet(sheet);
-
+		
 		Row r = s.getRow(i);
 
 		Cell c = r.getCell(j);
@@ -31,9 +31,9 @@ public class ExcelUtility
 		return c.getStringCellValue();
 	}
 
-	public static String readIntegerData(int i, int j,String sheet) throws IOException {
+	public static String readIntegerData(int i, int j, String sheet) throws IOException {
 
-		f = new FileInputStream("C:\\Users\\NITHYA R NAIR\\eclipse-workspace\\7rmartFinalProject\\src\\test\\resources\\TestingData.xlsx");
+		f = new FileInputStream(Constant.TESTDATAFILE);
 		w = new XSSFWorkbook(f);
 		s = w.getSheet(sheet);
 		Row r = s.getRow(i);
@@ -42,8 +42,3 @@ public class ExcelUtility
 		return String.valueOf(value);
 	}
 }
-
-
-
-
-

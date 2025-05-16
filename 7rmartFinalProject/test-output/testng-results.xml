@@ -2,24 +2,31 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-05-13T15:25:01 IST" name="Default suite" finished-at="2025-05-13T15:25:07 IST" duration-ms="5601">
+  <suite started-at="2025-05-16T23:32:41 IST" name="Default suite" finished-at="2025-05-16T23:32:48 IST" duration-ms="6966">
     <groups>
     </groups>
-    <test started-at="2025-05-13T15:25:01 IST" name="Default test" finished-at="2025-05-13T15:25:07 IST" duration-ms="5601">
-      <class name="testScript.HomeTest">
-        <test-method is-config="true" signature="initializeBrowser()[pri:0, instance:testScript.HomeTest@692f203f]" started-at="2025-05-13T15:25:01 IST" name="initializeBrowser" finished-at="2025-05-13T15:25:05 IST" duration-ms="3579" status="PASS">
+    <test started-at="2025-05-16T23:32:41 IST" name="Default test" finished-at="2025-05-16T23:32:48 IST" duration-ms="6966">
+      <class name="testScript.ManageNewsTest">
+        <test-method is-config="true" signature="initializeBrowser()[pri:0, instance:testScript.ManageNewsTest@55182842]" started-at="2025-05-16T23:32:41 IST" name="initializeBrowser" finished-at="2025-05-16T23:32:45 IST" duration-ms="3971" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeBrowser -->
-        <test-method signature="verifyLoginIsSuccessfullWithValidCredentials()[pri:0, instance:testScript.HomeTest@692f203f]" started-at="2025-05-13T15:25:05 IST" name="verifyLoginIsSuccessfullWithValidCredentials" finished-at="2025-05-13T15:25:07 IST" duration-ms="1803" status="PASS">
+        <test-method signature="verifyCustomerCanSearchNewlyAddedNewsSuccesfullyInManageNewsSearchFiled()[pri:0, instance:testScript.ManageNewsTest@55182842]" started-at="2025-05-16T23:32:45 IST" name="verifyCustomerCanSearchNewlyAddedNewsSuccesfullyInManageNewsSearchFiled" description="Verifying whether logged in user can search newly added news in manage news section" finished-at="2025-05-16T23:32:48 IST" duration-ms="2939" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyLoginIsSuccessfullWithValidCredentials -->
-        <test-method is-config="true" signature="driverCloseandQuit()[pri:0, instance:testScript.HomeTest@692f203f]" started-at="2025-05-13T15:25:07 IST" name="driverCloseandQuit" finished-at="2025-05-13T15:25:07 IST" duration-ms="167" status="PASS">
+        </test-method> <!-- verifyCustomerCanSearchNewlyAddedNewsSuccesfullyInManageNewsSearchFiled -->
+        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testScript.ManageNewsTest@55182842]" started-at="2025-05-16T23:32:48 IST" name="driverQuit" finished-at="2025-05-16T23:32:48 IST" duration-ms="6" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyCustomerCanSearchNewlyAddedNewsSuccesfullyInManageNewsSearchFiled status=SUCCESS method=ManageNewsTest.verifyCustomerCanSearchNewlyAddedNewsSuccesfullyInManageNewsSearchFiled()[pri:0, instance:testScript.ManageNewsTest@55182842] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- driverCloseandQuit -->
-      </class> <!-- testScript.HomeTest -->
+        </test-method> <!-- driverQuit -->
+      </class> <!-- testScript.ManageNewsTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

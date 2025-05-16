@@ -11,7 +11,7 @@ public class HomeTest extends Base
 {
 
 	
-	@Test
+	@Test(description = "Verifying whether logged in users can logoyut succesfully")
 	public void verifyLoginIsSuccessfullWithValidCredentials() throws IOException
 	{
 			String username=ExcelUtility.readStringData(0, 0, "LoginPage");

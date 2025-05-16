@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testScript.HomeTest">
+      <class name="testScript.ManageNewsTest">
         <methods>
-          <include name="driverCloseandQuit"/>
+          <include name="verifyCustomerCanAddNewNewsSuccesfullyInManageNewsFiled"/>
           <include name="initializeBrowser"/>
-          <include name="verifyLoginIsSuccessfullWithValidCredentials"/>
+          <include name="driverQuit"/>
         </methods>
-      </class> <!-- testScript.HomeTest -->
+      </class> <!-- testScript.ManageNewsTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
