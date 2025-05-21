@@ -12,22 +12,15 @@ import constants.Constant;
 
 public class ExcelUtility {
 	public static XSSFWorkbook w;
-
 	public static XSSFSheet s;
-
 	public static FileInputStream f;
 
 	public static String readStringData(int i, int j, String sheet) throws IOException {
-
 		f = new FileInputStream(Constant.TESTDATAFILE);
 		w = new XSSFWorkbook(f);
-
 		s = w.getSheet(sheet);
-		
 		Row r = s.getRow(i);
-
 		Cell c = r.getCell(j);
-
 		return c.getStringCellValue();
 	}
 

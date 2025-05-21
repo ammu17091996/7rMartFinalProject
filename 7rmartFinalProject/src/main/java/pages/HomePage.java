@@ -9,43 +9,47 @@ public class HomePage
 
 {
 	public WebDriver driver;
-	public HomePage(WebDriver driver)
-	{
-		this.driver=driver;
+
+	public HomePage(WebDriver driver) {
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
-
 	}
-	@FindBy(name="username")private WebElement usernamefield;
-	@FindBy(name="password")private WebElement passwordfield;
-	@FindBy(xpath="//button[text()='Sign In']")private WebElement signinfield;
-	@FindBy(xpath="//img[@src='https://groceryapp.uniqassosiates.com/public/assets/admin/dist/img/avatar5.png']")private WebElement admin;
-@FindBy(xpath="//i[@class='ace-icon fa fa-power-off']")private WebElement logout;
-	public void enterUesrnameOnUserNameField(String username)
-	{
+
+	@FindBy(name = "username")
+	private WebElement usernamefield;
+	@FindBy(name = "password")
+	private WebElement passwordfield;
+	@FindBy(xpath = "//button[text()='Sign In']")
+	private WebElement signinfield;
+	@FindBy(xpath = "//img[@src='https://groceryapp.uniqassosiates.com/public/assets/admin/dist/img/avatar5.png']")
+	private WebElement admin;
+	@FindBy(xpath = "//i[@class='ace-icon fa fa-power-off']")
+	private WebElement logout;
+	@FindBy(xpath = "//div[@class='login-logo']")
+	private WebElement logintext;
+
+
+	public void enterUesrnameOnUserNameField(String username) {
 		usernamefield.sendKeys(username);
-
-
 	}
-	public void enterPasswordOnPasswordField(String password)
-	{
+
+	public void enterPasswordOnPasswordField(String password) {
 		passwordfield.sendKeys(password);
-
-
 	}
-	public void clickLoginButtonField()
-	{
+
+	public void clickLoginButtonField() {
 		signinfield.click();
-
-
 	}
-	public void clickOnAdminLink()
-	{
-		
+
+	public void clickOnAdminLink() {
 		admin.click();
 	}
-	public void clickOnLogout()
-	{
+
+	public void clickOnLogout() {
 		logout.click();
 	}
-
+	public String getLoginPageText()
+	{
+		return logintext.getText();
+	}
 }

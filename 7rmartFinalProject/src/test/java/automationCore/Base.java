@@ -16,22 +16,18 @@ public class Base
 	public WebDriver driver;
 
 	@BeforeMethod
-	public void initializeBrowser() 
-	{
+	public void initializeBrowser() {
 		driver = new ChromeDriver();
 		driver.get("https://groceryapp.uniqassosiates.com/admin/login");
 		driver.manage().window().maximize();
 	}
 
 	@AfterMethod
-	public void driverQuit(ITestResult iTestResult) throws IOException
-	{
-		if (iTestResult.getStatus() == ITestResult.FAILURE)
-		{
+	public void driverQuit(ITestResult iTestResult) throws IOException {
+		if (iTestResult.getStatus() == ITestResult.FAILURE) {
 			ScreenshotUtility screenShot = new ScreenshotUtility();
 			screenShot.getScreenshot(driver, iTestResult.getName());
 		}
-		//driver.quit();
-
+		// driver.quit();
 	}
 }
