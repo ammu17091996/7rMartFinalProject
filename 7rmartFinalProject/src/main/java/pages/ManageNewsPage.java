@@ -14,12 +14,6 @@ public class ManageNewsPage {
 
 	}
 
-	@FindBy(name = "username")
-	private WebElement usernamefield;
-	@FindBy(name = "password")
-	private WebElement passwordfield;
-	@FindBy(xpath = "//button[text()='Sign In']")
-	private WebElement signinfield;
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news']")
 	private WebElement managenewsfield;
 	@FindBy(xpath = "//a[@onclick='click_button(1)']")
@@ -43,17 +37,6 @@ public class ManageNewsPage {
 	@FindBy(xpath="//a[@class='btn btn-sm btn btn-primary btncss']")
 	private WebElement serachedelementediticon;
 
-	public void enterUesrnameOnUserNameField(String username) {
-		usernamefield.sendKeys(username);
-	}
-
-	public void enterPasswordOnPasswordField(String password) {
-		passwordfield.sendKeys(password);
-	}
-
-	public void clickLoginButtonField() {
-		signinfield.click();
-	}
 
 	public void clickOnManageNewsField() {
 		managenewsfield.click();

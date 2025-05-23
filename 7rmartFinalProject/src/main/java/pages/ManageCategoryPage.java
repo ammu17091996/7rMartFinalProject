@@ -17,15 +17,10 @@ public class ManageCategoryPage {
 
 	}
 
-	@FindBy(name = "username")
-	private WebElement usernamefield;
-	@FindBy(name = "password")
-	private WebElement passwordfield;
-	@FindBy(xpath = "//button[text()='Sign In']")
-	private WebElement signinfield;
-	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-category']")
+	
+	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-category' and @class='active nav-link']")
 	private WebElement managecategoryfield;
-	@FindBy(xpath = "//a[@onclick='click_button(1)']")
+	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/Category/add']")
 	private WebElement Newcategoryfield;
 	@FindBy(xpath = "//input[@id='category']")
 	private WebElement category;
@@ -48,17 +43,7 @@ public class ManageCategoryPage {
 	@FindBy(xpath="//span[text()='Active']")
 	WebElement searchcategoryfoundmessage;
 
-	public void enterUesrnameOnUserNameField(String username) {
-		usernamefield.sendKeys(username);
-	}
-
-	public void enterPasswordOnPasswordField(String password) {
-		passwordfield.sendKeys(password);
-	}
-
-	public void clickLoginButtonField() {
-		signinfield.click();
-	}
+	
 
 	public void clickOnManageCategoryField() {
 		managecategoryfield.click();

@@ -13,7 +13,7 @@ import utilities.ExcelUtility;
 public class LoginTest extends Base
 
 {
-	@Test(description="Verifying user login with valid credentials",priority=1)
+	@Test(description="Verifying user login with valid credentials",priority=1,retryAnalyzer=retry.Retry.class)
 public void verifyLoginIsSuccessfullWithValidCredentials() throws IOException
 {
 		String username=ExcelUtility.readStringData(0, 0, "LoginPage");
@@ -38,7 +38,7 @@ public void verifyLoginIsSuccessfullWithValidCredentials() throws IOException
 		loginpage.clickLoginButtonField();
 		String expected="7rmart supermarket";
 		String actual=loginpage.getLoginPageText();
-		Assert.assertEquals(actual, expected,"User logged in with invalid password");
+		Assert.assertEquals(actual, expected,Messages.VALIDUSERNAMEINVALIDPASSWORDERROR);
 		//boolean isalertdisplayed=loginpage.alertVisibility();
 		//Assert.assertTrue(isalertdisplayed,"User Login Successfull With Invalid Password");
 
@@ -54,7 +54,7 @@ public void verifyLoginIsSuccessfullWithValidCredentials() throws IOException
 		loginpage.clickLoginButtonField();
 		String expected="7rmart supermarket";
 		String actual=loginpage.getLoginPageText();
-		Assert.assertEquals(actual, expected,"User logged in with invalid username");
+		Assert.assertEquals(actual, expected,Messages.INVALIDUSERNAMEVALIDPASSWORDERROR);
 	}
 	@Test(description="Verifying user login with Invalid credentials",priority=2)
 	public void verifyUserNotabletoLoginWithInvalidCredentials() throws IOException
@@ -67,6 +67,6 @@ public void verifyLoginIsSuccessfullWithValidCredentials() throws IOException
 		loginpage.clickLoginButtonField();
 		String expected="7rmart supermarket";
 		String actual=loginpage.getLoginPageText();
-		Assert.assertEquals(actual, expected,"User logged in with Invalid credentials");
+		Assert.assertEquals(actual, expected,Messages.INVALIDCREDENTIALERROR);
 	}
 }

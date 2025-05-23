@@ -6,6 +6,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationCore.Base;
+import constants.Messages;
+import pages.LoginPage;
 import pages.ManageNewsPage;
 import utilities.ExcelUtility;
 import utilities.RandomDataUtility;
@@ -18,9 +20,10 @@ public class ManageNewsTest extends Base
 		String username = ExcelUtility.readStringData(0, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(0, 1, "LoginPage");
 		ManageNewsPage managenewspage = new ManageNewsPage(driver);
-		managenewspage.enterUesrnameOnUserNameField(username);
-		managenewspage.enterPasswordOnPasswordField(password);
-		managenewspage.clickLoginButtonField();
+		LoginPage loginpage=new LoginPage(driver);
+		loginpage.enterUesrnameOnUserNameField(username);
+		loginpage.enterPasswordOnPasswordField(password);
+		loginpage.clickLoginButtonField();
 		managenewspage.clickOnManageNewsField();
 		managenewspage.clickOnNewNewsField();
 		RandomDataUtility randomdatautility = new RandomDataUtility();
@@ -28,7 +31,7 @@ public class ManageNewsTest extends Base
 		managenewspage.enterNewNewsOnTextarea(testnewsdata);
 		managenewspage.clickOnSaveNewsButton();
 		boolean newscreationmessage=managenewspage.getNewsCreationSuccessMessage();
-		Assert.assertTrue(newscreationmessage,"Add News functionality not working");
+		Assert.assertTrue(newscreationmessage,Messages.ADDNEWSERROR);
 	}
 
 	@Test(description = "Verifying whether logged in user can search newly added news in manage news section")
@@ -36,15 +39,16 @@ public class ManageNewsTest extends Base
 		String username = ExcelUtility.readStringData(0, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(0, 1, "LoginPage");
 		ManageNewsPage managenewspage = new ManageNewsPage(driver);
-		managenewspage.enterUesrnameOnUserNameField(username);
-		managenewspage.enterPasswordOnPasswordField(password);
-		managenewspage.clickLoginButtonField();
+		LoginPage loginpage=new LoginPage(driver);
+		loginpage.enterUesrnameOnUserNameField(username);
+		loginpage.enterPasswordOnPasswordField(password);
+		loginpage.clickLoginButtonField();
 		managenewspage.clickOnManageNewsField();
 		managenewspage.clickOnSearchNewsButton();
 		String testnews = ExcelUtility.readStringData(0, 0, "ManageNewsPage");
 		managenewspage.enterNewsTitleForSearch(testnews);
 		managenewspage.clickOnSearchButton();
 		boolean searchedelement=managenewspage.getSearchElementEditIconVisibility();
-		Assert.assertTrue(searchedelement,"Search News functionality not working");
+		Assert.assertTrue(searchedelement,Messages.SEARCHNEWSERROR);
 	}
 }

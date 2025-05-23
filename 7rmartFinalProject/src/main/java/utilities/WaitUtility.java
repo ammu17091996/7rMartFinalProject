@@ -33,4 +33,12 @@ public class WaitUtility {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITWAIT));
 		wait.until(ExpectedConditions.alertIsPresent());
 	}
+	public void waitUntilSelected(WebDriver driver,WebElement element) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITWAIT));
+		wait.until(ExpectedConditions.elementToBeSelected(element));
+	}
+	public void waitUntilFrameAvailable(WebDriver driver,WebElement element) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITWAIT));
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(element));
+	}	
 }
