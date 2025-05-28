@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import automationCore.Base;
 import constants.Messages;
+import pages.HomePage;
 import pages.LoginPage;
 import pages.ManageNewsPage;
 import utilities.ExcelUtility;
@@ -15,21 +16,19 @@ import utilities.RandomDataUtility;
 public class ManageNewsTest extends Base
 
 {
+	HomePage homepage;
+	ManageNewsPage managenewspage;
 	@Test(description = "Verifying whether logged in user can add new news in manage news section ")
 	public void verifyCustomerCanAddNewNewsSuccesfullyInManageNewsFiled() throws IOException {
 		String username = ExcelUtility.readStringData(0, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(0, 1, "LoginPage");
-		ManageNewsPage managenewspage = new ManageNewsPage(driver);
-		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterUesrnameOnUserNameField(username);
-		loginpage.enterPasswordOnPasswordField(password);
-		loginpage.clickLoginButtonField();
-		managenewspage.clickOnManageNewsField();
-		managenewspage.clickOnNewNewsField();
+		 LoginPage loginpage=new LoginPage(driver);
+		loginpage.enterUesrnameOnUserNameField(username).enterPasswordOnPasswordField(password);
+		homepage=loginpage.clickLoginButtonField();
+		managenewspage=homepage.clickOnManageNewsField();
 		RandomDataUtility randomdatautility = new RandomDataUtility();
 		String testnewsdata = randomdatautility.createRandomName();
-		managenewspage.enterNewNewsOnTextarea(testnewsdata);
-		managenewspage.clickOnSaveNewsButton();
+		managenewspage.clickOnNewNewsField().enterNewNewsOnTextarea(testnewsdata).clickOnSaveNewsButton();
 		boolean newscreationmessage=managenewspage.getNewsCreationSuccessMessage();
 		Assert.assertTrue(newscreationmessage,Messages.ADDNEWSERROR);
 	}
@@ -40,14 +39,11 @@ public class ManageNewsTest extends Base
 		String password = ExcelUtility.readStringData(0, 1, "LoginPage");
 		ManageNewsPage managenewspage = new ManageNewsPage(driver);
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterUesrnameOnUserNameField(username);
-		loginpage.enterPasswordOnPasswordField(password);
-		loginpage.clickLoginButtonField();
-		managenewspage.clickOnManageNewsField();
-		managenewspage.clickOnSearchNewsButton();
+		loginpage.enterUesrnameOnUserNameField(username).enterPasswordOnPasswordField(password);
+		homepage=loginpage.clickLoginButtonField();
+		managenewspage=homepage.clickOnManageNewsField();
 		String testnews = ExcelUtility.readStringData(0, 0, "ManageNewsPage");
-		managenewspage.enterNewsTitleForSearch(testnews);
-		managenewspage.clickOnSearchButton();
+		managenewspage.clickOnSearchNewsButton().enterNewsTitleForSearch(testnews).clickOnSearchButton();
 		boolean searchedelement=managenewspage.getSearchElementEditIconVisibility();
 		Assert.assertTrue(searchedelement,Messages.SEARCHNEWSERROR);
 	}

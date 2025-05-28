@@ -14,8 +14,7 @@ public class ManageNewsPage {
 
 	}
 
-	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news']")
-	private WebElement managenewsfield;
+	
 	@FindBy(xpath = "//a[@onclick='click_button(1)']")
 	private WebElement newnewsField;
 	@FindBy(xpath = "//textarea[@id='news']")
@@ -38,37 +37,41 @@ public class ManageNewsPage {
 	private WebElement serachedelementediticon;
 
 
-	public void clickOnManageNewsField() {
-		managenewsfield.click();
-	}
+	
 
-	public void clickOnNewNewsField() {
+	public ManageNewsPage clickOnNewNewsField() {
 		newnewsField.click();
+		return this;
 
 	}
 
-	public void enterNewNewsOnTextarea(String testnewsdata) {
+	public ManageNewsPage enterNewNewsOnTextarea(String testnewsdata) {
 		newstextarea.sendKeys(testnewsdata);
+		return this;
 
 	}
 
-	public void clickOnSaveNewsButton() {
+	public ManageNewsPage clickOnSaveNewsButton() {
 		saveNewsButton.click();
+		return this;
 
 	}
 
-	public void clickOnSearchNewsButton() {
+	public ManageNewsPage clickOnSearchNewsButton() {
 		searchnewsfield.click();
+		return this;
 
 	}
 
-	public void enterNewsTitleForSearch(String testnews) {
+	public ManageNewsPage enterNewsTitleForSearch(String testnews) {
 		newsTitleField.sendKeys(testnews);
+		return this;
 
 	}
 
-	public void clickOnSearchButton() {
+	public ManageNewsPage clickOnSearchButton() {
 		NewsSearchButton.click();
+		return this;
 
 	}
 

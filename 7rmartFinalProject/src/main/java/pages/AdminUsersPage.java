@@ -15,8 +15,7 @@ public class AdminUsersPage {
 
 	}
 
-	@FindBy(xpath = "//a[@class='small-box-footer']")
-	private WebElement AdminUsers;
+	
 	@FindBy(xpath = "//a[@onclick='click_button(1)']")
 	private WebElement newadminuser;
 	@FindBy(xpath = "//input[@id='username']")
@@ -42,54 +41,60 @@ public class AdminUsersPage {
 	@FindBy(xpath="//span[@class='badge bg-success']")private WebElement searchfoundactiveuser;
 
 
-	public void clickAdminUsersField() {
-		AdminUsers.click();
+	
 
-	}
-
-	public void clickAddNewAdminUserField() {
+	public AdminUsersPage clickAddNewAdminUserField() {
 		newadminuser.click();
+		return this;
 
 	}
 
-	public void enterNewAdminUserUsername(String newadminuser) {
+	public AdminUsersPage enterNewAdminUserUsername(String newadminuser) {
 		adminusername.sendKeys(newadminuser);
+		return this;
 
 	}
 
-	public void enterNewAdminUserPassword(String newadminpassword) {
+	public AdminUsersPage enterNewAdminUserPassword(String newadminpassword) {
 		adminpassword.sendKeys(newadminpassword);
+		return this;
 
 	}
 
-	public void selectNewAdminUserType() {
+	public AdminUsersPage selectNewAdminUserType() {
 		Select select = new Select(adminusertype);
 		select.selectByIndex(1);
+		return this;
 	}
 
-	public void clickSaveNewAdminUserField() {
+	public AdminUsersPage clickSaveNewAdminUserField() {
 		newadminsavebutton.click();
+		return this;
 
 	}
 
-	public void clickSearchAdminUserField() {
+	public AdminUsersPage clickSearchAdminUserField() {
 		searchadminuser.click();
+		return this;
 
 	}
 
-	public void enterSearchAdminUsername(String testadminuser) {
+	public AdminUsersPage enterSearchAdminUsername(String testadminuser) {
 
 		searchadminusername.sendKeys(testadminuser);
+		return this;
 	}
 
-	public void selectSearchAdminUserType() {
+	public AdminUsersPage selectSearchAdminUserType() {
 
 		searchadminuseretype.click();
+		return this;
 	}
 
-	public void clickSearchAdminUserButton() {
+	public AdminUsersPage clickSearchAdminUserButton() {
 
 		searchbutton.click();
+		return this;
 	}
 	public boolean userCreatedValidationMessage() {
 

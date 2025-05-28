@@ -7,9 +7,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import constants.Constant;
+import utilities.PageUtility;
 
 public class ManageCategoryPage {
 	public WebDriver driver;
+	PageUtility pageutility;
 
 	public ManageCategoryPage(WebDriver driver) {
 		this.driver = driver;
@@ -18,8 +20,7 @@ public class ManageCategoryPage {
 	}
 
 	
-	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-category' and @class='active nav-link']")
-	private WebElement managecategoryfield;
+	
 	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/Category/add']")
 	private WebElement Newcategoryfield;
 	@FindBy(xpath = "//input[@id='category']")
@@ -45,46 +46,54 @@ public class ManageCategoryPage {
 
 	
 
-	public void clickOnManageCategoryField() {
-		managecategoryfield.click();
-	}
+	
 
-	public void clickOnAddNewCategoryField() {
+	public ManageCategoryPage clickOnAddNewCategoryField() {
 		Newcategoryfield.click();
+		return this;
 	}
 
-	public void EnterCategory(String categoryname) {
+	public ManageCategoryPage EnterCategory(String categoryname) {
 		category.sendKeys(categoryname);
+		return this;
 	}
 
-	public void selectGroup() {
+	public ManageCategoryPage selectGroup() {
 		selectgroup.click();
+		return this;
 	}
 
-	public void uploadImage() {
+	public ManageCategoryPage uploadImage() {
 		image.sendKeys(Constant.IMAGEDATA);
+		return this;
 	}
 
-	public void saveCategory() {
+	public ManageCategoryPage saveCategory() {
+		//pageutility.javaScriptClick(savecategorybutton);
 		JavascriptExecutor javascript = (JavascriptExecutor) driver;// casting by creating reference for the interface
 		javascript.executeScript("arguments[0].click();", savecategorybutton);
+		return this;
 	}
 
-	public void selectShowOntopmenu() {
+	public ManageCategoryPage selectShowOntopmenu() {
 
 		Showontopmenuradio.click();
+		return this;
 	}
 
-	public void searchCategory() {
+	public ManageCategoryPage searchCategory() {
 		searchcategory.click();
+		return this;
 	}
 
-	public void enterCategorynameforSearch(String searchcategoryname) {
+	public ManageCategoryPage enterCategorynameforSearch(String searchcategoryname) {
 		categoryforsearch.sendKeys(searchcategoryname);
+		return this;
 	}
 
-	public void clickOnSearchCategoryButton() {
+	public ManageCategoryPage clickOnSearchCategoryButton() {
 		searchcategorybutton.click();
+		return this;
 	}
 	public boolean getAlertMessageForSuccessfullCategoryCreation()
 	{

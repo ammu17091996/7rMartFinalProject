@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import automationCore.Base;
 import constants.Messages;
 import pages.AdminUsersPage;
+import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 import utilities.RandomDataUtility;
@@ -15,23 +16,22 @@ import utilities.RandomDataUtility;
 public class AdminUsersTest extends Base
 
 {
+	HomePage homepage;
+	AdminUsersPage adminuserspage;
+
 	@Test(description = "Verifying Admin user can add new users successfully ")
 	public void verifyCustomerCanAddNewUsersSuccesfullyInNewAdminusersFiled() throws IOException {
 		String username=ExcelUtility.readStringData(0, 0, "LoginPage");
 		String password=ExcelUtility.readStringData(0, 1, "LoginPage");
 		RandomDataUtility randomdatautility = new RandomDataUtility();
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterUesrnameOnUserNameField(username);
-		loginpage.enterPasswordOnPasswordField(password);
-		loginpage.clickLoginButtonField();
-		AdminUsersPage adminuserspage = new AdminUsersPage(driver);
-    	adminuserspage.clickAddNewAdminUserField();
+		loginpage.enterUesrnameOnUserNameField(username).enterPasswordOnPasswordField(password);
+		homepage=loginpage.clickLoginButtonField();
+    	adminuserspage=homepage.clickAdminUsersField();
 		String newadminuser = randomdatautility.createRandomUsername();
 		String newadminpassword = randomdatautility.createRandomPassword();
-		adminuserspage.enterNewAdminUserUsername(newadminuser);
-		adminuserspage.enterNewAdminUserPassword(newadminpassword);
-		adminuserspage.selectNewAdminUserType();
-		adminuserspage.clickSaveNewAdminUserField(); 
+		adminuserspage.clickAddNewAdminUserField();
+		adminuserspage.enterNewAdminUserUsername(newadminuser).enterNewAdminUserPassword(newadminpassword).selectNewAdminUserType().clickSaveNewAdminUserField(); 
 		boolean isalertdispalyed=adminuserspage.userCreatedValidationMessage();
 		Assert.assertTrue(isalertdispalyed,Messages.ADDADMINUSERERROR);
 	}
@@ -42,16 +42,11 @@ public class AdminUsersTest extends Base
 		String password=ExcelUtility.readStringData(0, 1, "LoginPage");
 		RandomDataUtility randomdatautility = new RandomDataUtility();
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.enterUesrnameOnUserNameField(username);
-		loginpage.enterPasswordOnPasswordField(password);
-		loginpage.clickLoginButtonField();
-		AdminUsersPage adminuserspage = new AdminUsersPage(driver);
-		adminuserspage.clickAdminUsersField();
-		adminuserspage.clickSearchAdminUserField();
+		loginpage.enterUesrnameOnUserNameField(username).enterPasswordOnPasswordField(password);
+		homepage=loginpage.clickLoginButtonField();
+		adminuserspage=homepage.clickAdminUsersField();
 		String testadminuser = ExcelUtility.readStringData(0, 0, "AdminUserPage");
-		adminuserspage.enterSearchAdminUsername(testadminuser);
-		adminuserspage.selectSearchAdminUserType();
-		adminuserspage.clickSearchAdminUserButton();
+		adminuserspage.clickSearchAdminUserField().enterSearchAdminUsername(testadminuser).selectSearchAdminUserType().clickSearchAdminUserButton();
 		String expected="Active";
 		String actual=adminuserspage.getSearchUserActivetext();
 		Assert.assertEquals(actual, expected,Messages.SEARCHADMINUSERERROR);

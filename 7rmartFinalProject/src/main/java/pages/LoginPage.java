@@ -1,15 +1,16 @@
 package pages;
 
-import java.nio.file.WatchEvent;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.WaitUtility;
+
 public class LoginPage
 
 {
+	WaitUtility wait=new WaitUtility();
 	public WebDriver driver;
 
 	public LoginPage(WebDriver driver) {
@@ -31,18 +32,20 @@ public class LoginPage
 	@FindBy(xpath = "//div[@class='login-logo']")
 	private WebElement logintext;
 
-	public void enterUesrnameOnUserNameField(String username) {
+	public LoginPage enterUesrnameOnUserNameField(String username) {//for clicking username no page redirection so passing login class in place of return type
 		usernamefield.sendKeys(username);
-
+return this;
 	}
 
-	public void enterPasswordOnPasswordField(String password) {
+	public LoginPage enterPasswordOnPasswordField(String password) {
 		passwordfield.sendKeys(password);
-
+return this;
 	}
 
-	public void clickLoginButtonField() {
+	public HomePage clickLoginButtonField() {// here returning to home page 
+		wait.waitUntilClickable(driver, signinfield);
 		signinfield.click();
+		return new HomePage(driver);
 	}
 
 	public boolean alertVisibility() {
