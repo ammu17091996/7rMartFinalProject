@@ -11,7 +11,7 @@ import utilities.PageUtility;
 
 public class ManageCategoryPage {
 	public WebDriver driver;
-	PageUtility pageutility;
+	PageUtility pageutility=new PageUtility();
 
 	public ManageCategoryPage(WebDriver driver) {
 		this.driver = driver;
@@ -69,9 +69,9 @@ public class ManageCategoryPage {
 	}
 
 	public ManageCategoryPage saveCategory() {
-		//pageutility.javaScriptClick(savecategorybutton);
-		JavascriptExecutor javascript = (JavascriptExecutor) driver;// casting by creating reference for the interface
-		javascript.executeScript("arguments[0].click();", savecategorybutton);
+		pageutility.javaScriptClick(savecategorybutton, driver);
+		//JavascriptExecutor javascript = (JavascriptExecutor) driver;// casting by creating reference for the interface
+		//javascript.executeScript("arguments[0].click();", savecategorybutton);
 		return this;
 	}
 

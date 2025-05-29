@@ -30,7 +30,7 @@ public class PageUtility {
 		Actions actions = new Actions(driver);
 		actions.moveToElement(element).build().perform();
 	}
-    public  void javaScriptClick(WebElement element) {
+    public  void javaScriptClick(WebElement element,WebDriver driver) {
     	JavascriptExecutor javascript=(JavascriptExecutor)driver;//casting by creating reference for the interface
 		javascript.executeScript("arguments[0].click();", element);	}
 }
